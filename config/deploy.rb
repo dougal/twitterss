@@ -22,10 +22,13 @@ set :runner, 'dougal'
 
 role :app, "badger"
 role :web, "badger"
-#role :db,  "badger", :primary => true
+role :db,  "badger", :primary => true
 
 namespace :deploy do
   task :restart do
     run "cd /var/www/dvsb/current; touch tmp/restart.txt"
+  end
+  task :migrate do
+    # nothing, yah!
   end
 end
