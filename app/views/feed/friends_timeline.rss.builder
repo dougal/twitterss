@@ -9,7 +9,7 @@ xml.rss(:version=>"2.0"){
       for tweet in @tweets
         xml.item do
           xml.title(tweet['text'])
-          xml.description('<p>' + user_link(tweet['user']['screen_name']) + ': ' + auto_link(tweet['text']) + '</p><p>' + reply_link(tweet) + '</p>' )    
+          xml.description('<p>' + user_link(tweet['user']['screen_name']) + ': ' + link_usernames(auto_link(tweet['text'])) + '</p><p>' + reply_link(tweet) + '</p>' )    
           xml.pubDate(tweet['created_at'])
           xml.guid(tweet_uri(tweet))
         end
