@@ -6,7 +6,7 @@ class FeedController < ApplicationController
       @username = username
       !@tweets.include?('error')
     end
-    #puts @tweets.first.inspect
+
     respond_to do |format|
       format.rss {}
     end
