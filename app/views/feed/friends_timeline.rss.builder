@@ -1,10 +1,10 @@
 xml.instruct! :xml, :version=>"1.0" 
 xml.rss(:version=>"2.0"){
   xml.channel{
-    xml.title("Twitter / #{h @username} with friends")
+    xml.title("TwitteRSS / #{h @username} with friends")
     xml.link("http://twitter.com/#{h @username}/with_friends")
     xml.copyright("Copyright retained by original author, refer to http://twitter.com/statuses/friends_timeline.rss for further information")
-    xml.description()
+    xml.description("Feed enhancement by TwitterRSS: http://twitterss.douglasfshearer.com")
     xml.language('en-us')
       for tweet in @tweets
         xml.item do
