@@ -15,7 +15,7 @@ module FeedHelper
   end
   
   def link_usernames(content)
-    content.gsub(/@([^\s])+/) do |m|
+    content.gsub(/@([\w]+)/) do |m|
       # Could not figure out how to get the first grouping from the regex here.
       user_link(m[1..100], true)
     end
