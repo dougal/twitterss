@@ -1,9 +1,8 @@
 module FeedHelper
   
   def user_link(username, with_amp = false)
-    text = h(username)
-    text = "@#{text}" if with_amp
-    link_to text, "http://twitter.com/#{h(username)}"
+    link = link_to(h(username), "http://twitter.com/#{h(username)}")
+    with_amp ? '@' + link : link
   end
   
   def tweet_uri(tweet)
@@ -15,7 +14,7 @@ module FeedHelper
   end
   
   def link_usernames(content)
-    content.gsub(/@([\w]+)/) do |m|
+    content.gsub(/@(\w+)/) do |m|
       # Could not figure out how to get the first grouping from the regex here.
       user_link(m[1..100], true)
     end
